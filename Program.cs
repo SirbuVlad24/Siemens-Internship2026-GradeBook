@@ -10,8 +10,8 @@ builder.Services.AddScoped<IGradeService, GradeService>();
 
 var app = builder.Build();
 
-app.UseDefaultFiles(); // Cauta automat index.html
-app.UseStaticFiles(); // Permite servirea fisierelor din wwwroot
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
