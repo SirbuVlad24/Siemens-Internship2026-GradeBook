@@ -63,4 +63,23 @@ public class GradesController : ControllerBase
         var grades = await _gradeService.GetPassingGradesAsync(count);
         return Ok(grades);
     }
+
+    [HttpGet("view")]
+    public ContentResult GetInputPage()
+    {
+        var html = @"
+        <html>
+            <body style='font-family: Arial; text-align: center; padding-top: 50px;'>
+                <h1>Interfata GradeBook</h1>
+                <p>Introduceti numarul de note de trecere pe care vreti sa le vedeti (N):</p>
+                <input type='number' id='count' value='5' style='padding: 10px; width: 80px; font-size: 16px;'>
+                <button onclick='window.location=""/api/Grades/passing?count="" + document.getElementById(""count"").value' 
+                        style='padding: 10px 20px; cursor: pointer; font-size: 16px; background: #007bff; color: white; border: none; border-radius: 4px;'>
+                    Afiseaza Notele
+                </button>
+            </body>
+        </html>";
+
+        return base.Content(html, "text/html");
+    }
 }
