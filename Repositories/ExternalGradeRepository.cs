@@ -16,7 +16,7 @@ public class ExternalGradeRepository : IGradeReader
 
     private class ExternalData
     {
-        public List<Grade> Items { get; set; } = new();
+        public List<Grade> Grades { get; set; } = new();
     }
 
     public async Task<IEnumerable<Grade>> GetAllAsync()
@@ -28,7 +28,7 @@ public class ExternalGradeRepository : IGradeReader
                 PropertyNameCaseInsensitive = true
             };
             var data = await _httpClient.GetFromJsonAsync<ExternalData>(Url, options);
-            return data?.Items ?? Enumerable.Empty<Grade>();
+            return data?.Grades ?? Enumerable.Empty<Grade>();
         }
         catch (Exception)
         {

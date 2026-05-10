@@ -16,4 +16,4 @@
 - **Service Layer**: Business logic implementation in GradeService.
 - **Repository Pattern**: Integration with external endpoint (GitHub Gist) via ExternalGradeRepository.
 - **Dependency Injection**: Decoupling components through interfaces.
-- **Domain**: Renamed 'Item' entities to 'Grade' for better clarity.
+- **Domain Driven Design**: The project is structured around the GradeBook domain with clear entity definitions.
