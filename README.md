@@ -1,4 +1,5 @@
 ## Getting Started
+1. Run application: `dotnet run`
 2. Local address: `https://localhost:7069` or `http://localhost:5030`.
 
 ## Main Endpoints
