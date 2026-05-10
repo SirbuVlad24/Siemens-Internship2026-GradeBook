@@ -16,12 +16,6 @@ public class GradesController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet("/")]
-    public IActionResult Index()
-    {
-        return Redirect("/api/Grades/view");
-    }
-
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -70,38 +64,4 @@ public class GradesController : ControllerBase
         return Ok(grades);
     }
 
-    [HttpGet("view")]
-    public ContentResult GetInputPage()
-    {
-        var html = @"
-        <html>
-            <body style='font-family: Arial; text-align: center; padding-top: 50px; background-color: #f4f7f6;'>
-                <div style='display: inline-block; background: white; padding: 40px; border-radius: 10px; border: 1px solid #ddd;'>
-                    <h1 style='color: #333;'>Dashboard GradeBook</h1>
-                    
-                    <div style='margin-bottom: 30px; padding: 20px; border-bottom: 1px solid #eee;'>
-                        <h3>1. Toate Notele</h3>
-                        <p>Vezi lista completa si statisticile generale.</p>
-                        <button onclick='window.location=""/api/Grades""' 
-                                style='padding: 10px 20px; cursor: pointer; background: #28a745; color: white; border: none; border-radius: 4px; font-size: 14px;'>
-                            Vezi Toate Notele
-                        </button>
-                    </div>
-
-                    <div style='padding: 20px;'>
-                        <h3>2. Filtrare Note Trecere</h3>
-                        <p>Introdu numarul N de note pe care vrei sa le vezi:</p>
-                        <input type='number' id='count' value='5' style='padding: 10px; width: 80px; margin-bottom: 10px; font-size: 16px;'>
-                        <br>
-                        <button onclick='window.location=""/api/Grades/passing?count="" + document.getElementById(""count"").value' 
-                                style='padding: 10px 20px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; font-size: 14px;'>
-                            Filtreaza Primele N
-                        </button>
-                    </div>
-                </div>
-            </body>
-        </html>";
-
-        return base.Content(html, "text/html");
-    }
 }
